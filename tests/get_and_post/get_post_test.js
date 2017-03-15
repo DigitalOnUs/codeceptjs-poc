@@ -1,3 +1,5 @@
+/// <reference path="./steps.d.ts" />
+
 Feature('REST http test');
 
 Scenario('I can do GET requests', function*(I) {
