@@ -7,6 +7,10 @@
     },
     "include": {},
     "bootstrap": false,
-    "mocha": {},
+    "mocha": {
+        "reporterOptions": {
+            "reportDir": "mochaReports"
+        }
+    },
     "name": "codecept-poc"
 }
