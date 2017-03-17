@@ -1,7 +1,7 @@
 # Using REST API on CodeceptJS
 External references:
 * [Helpers API](https://github.com/Codeception/CodeceptJS/blob/master/docs)
-* [Demo script](./tests/get_and_post/get_post_test.js)
+* [Demo script](./rest-poc_test.js)
 
 ## Introduction
 ***
