@@ -1,4 +1,5 @@
 # Using REST API on CodeceptJS
+***
 External references:
 * [Helpers API](https://github.com/Codeception/CodeceptJS/blob/master/docs)
 * [Demo script](./rest-poc_test.js)
@@ -21,6 +22,7 @@ Scenario('I can do GET requests', (I) => {
 ```
 
 ## Getting started
+***
 Before starting, the REST helper should be configured inside your ```codecept.json```configuration file.
 Like this:
 ```js
@@ -33,12 +35,35 @@ Like this:
     },
     "include": {},
     "bootstrap": false,
-    "mocha": {},
+    "mocha": {
+        "reporterOptions": {
+            "reportDir": "mochaReports"
+        }
+    },
     "name": "codecept-poc"
 }
 ```
+### JSON-SERVER
+Install [JSON-SERVER](https://github.com/typicode/json-server) which is a local dummy api that stores information within a JSON file.
+This will allow you to test API's from within a local server.
+```
+npm install json-server -g
+```
 
-### How to use the REST library
+### UNIREST library
+Install the unirest library to your main _package.json_ file:
+```
+npm install unirest -g
+```
+You could also use ```--save-dev``` instead of ```-g``` if you own the project.
+
+### MOCHAWESOME reports library _(optional)_
+If you wish to include HTML reports, also include MochAwesome library to your project folder:
+```
+npm install mochawesome -g
+```
+
+## How to use the REST library
 ***
 The following are a few pointers on how the REST library should be used:
 
@@ -124,7 +149,7 @@ let response = yield I.sendPut(url, headers, payload);
 // This request will remove book with id = 1 from the endpoint
 ```
 
-### RESPONSE object
+## RESPONSE object
 ***
 The response object contains valuable information depending the method of the request previously sent.
 For example:
@@ -132,10 +157,13 @@ For example:
 * Response body (a complex object containing all the information about the response, mainly important for a GET request)
 __For more information on how the request/response object should work, visit [unirest.io](http://unirest.io/nodejs.html), UNIREST is the library being used__
 
-### Try it for yourself!
+## Try it for yourself!
+***
 In order to try this out you could:
-1. Install [JSON-SERVER](https://github.com/typicode/json-server) which is a local dummy api that stores information within a JSON file
-2. Configure and start the service
-3. Start creating your CodeceptJS scenarios
-4. Run CodecepJS ```codecepjs run --steps```  
+1. Install [JSON-SERVER](https://github.com/typicode/json-server) as mentioned above
+2. Install [UNIREST](http://unirest.io/nodejs.html) to the package.json file as mentioned above
+3. Configure and start the service
+4. Start creating your CodeceptJS scenarios
+5. Run CodecepJS ```codecepjs run --steps```  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_If you included mochawesome, you could run it as ```codeceptjs run --steps --reporter mochawesome```in order to generate HTML reports from your tests_
 5. Enjoy!
