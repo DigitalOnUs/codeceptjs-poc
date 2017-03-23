@@ -3,7 +3,18 @@
     "timeout": 10000,
     "output": "./output",
     "helpers": {
-        "REST": {}
+        "REST": {},
+        "WebDriverIO" : {
+           "url": "about:blank",
+           "browser": "chrome",
+           "restart": false,
+           "windowSize": "maximize",
+           "timeouts": {
+             "script": 60000,
+             "page load": 10000,
+             "implicit" : 5000
+           }
+        }
     },
     "include": {},
     "bootstrap": false,
