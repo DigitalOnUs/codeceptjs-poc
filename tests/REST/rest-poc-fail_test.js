@@ -1,6 +1,6 @@
 var assert =  require('assert');
 
-Feature('REST API DEMO');
+Feature('FAILING REST API DEMO');
 // Using local dummy server using JSON-SERVER (pointing towards "dummyserver.json" file)
 var url = "http://localhost:3000/posts";
 var response, payload, lastID;
@@ -8,7 +8,7 @@ var response, payload, lastID;
 Scenario('User can send a GET request', function*(I) {
     // GET request
     response = yield I.sendGet(url);
-    assert.equal(response.code, 200, 'GET statement did not returned a 200 OK!');
+    assert.equal(response.code, 201, 'GET statement did not returned a 200 OK!');
     I.say(`Response code: ${response.code}`);
     I.say(`Response body:${JSON.stringify(response.body)}\n`);
 })
