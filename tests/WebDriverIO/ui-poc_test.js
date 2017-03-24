@@ -1,4 +1,4 @@
-Feature('FEATURE: UI DEMO');
+Feature('UI DEMO');
 let url = "http://mykidsbank.org/";
 
 Scenario('Open page', function*(I) {
@@ -9,10 +9,12 @@ Scenario('Open page', function*(I) {
 })
 
 Scenario('Sign up', function*(I) {
-    let firstName = "Dummy";
-    let lastName = "Dummerson";
-    let email = "dummymail" + (Math.floor(Math.random() * 2000)) + "@server.com";
+    let firstName = "John";
+    let lastName = "Doe";
+    let email = "johndoe." + (Math.floor((Math.random() * 1000) + 1)) + "@dummyserver.com";
     let password = "dummy";
+    I.amOnPage(url);
+    I.waitForElement({name: 'bank_id'}, 10);
     I.fillField('first_name', firstName);
     I.fillField('last_name', lastName);
     I.fillField('email_address', email);

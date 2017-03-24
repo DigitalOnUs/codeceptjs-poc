@@ -7,7 +7,8 @@
         "WebDriverIO" : {
            "url": "about:blank",
            "browser": "chrome",
-           "restart": false,
+           "manualStart": false,
+           "restart": true,
            "windowSize": "maximize",
            "timeouts": {
              "script": 60000,
